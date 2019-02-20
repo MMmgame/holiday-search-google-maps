@@ -1,0 +1,44 @@
+
+p {
+    font-size: 1.5em;
+}
+
+.mapFunctions {
+    padding: 2em; 
+}
+
+div #mymap {
+    width: 100%;
+    min-height: 350px;
+}
+
+#optsHeader {
+    margin-left: 2em;
+}
+
+.clearOptsBtn {
+    margin: 5px;
+}
+
+.searchResults {
+    margin-top: 4em;
+    margin-left: 3em;
+    width: 75%;
+}
+
+thead {
+    font-weight: 600;
+    font-size: 1.5em;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #F8F5F0;
+}
+
+/*  MEDIA QUERIES */
+
+/* Medium devices (desktops, 992px and up) */
+@media(min-width: 992px) {
+    div #mymap {
+        width: 90%;
+    }
+}
