@@ -11,7 +11,9 @@
     <title>Holiday Search</title>
 </head>
 <body onload = "init()">
-    <header class="container-fluid">
+    <div class="hero-image"></div>
+    
+    <header class="container-fluid set-bkgnd">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 jumbtron text-center">
                 <h1>Home from Home Holiday Search</h1>
@@ -27,12 +29,12 @@
     </header>
     <section class="container-fluid">
         <form>
-            <div class="row">
+            <div class="row set-bkgnd">
                 <div class="col-xs-8 col-md-8 col-md-offset-2">
                     <input type="text" class="form-control" id="mapSearch" placeholder="Seach Location">
                 </div>
                 <div class="col-xs-4 col-md-2">
-                    <button type="submit" class="btn btn-info">Search</button>
+                    <button type="submit" class="btn btn-info" id="search-btn">Search</button>
                 </div>
             </div>
         </form>
@@ -67,7 +69,7 @@
         </div>
     </section>
     
-    <section class="searchResults ">
+    <section class="searchResults">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>

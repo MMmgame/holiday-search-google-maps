@@ -1,6 +1,25 @@
+.hero-image {
+  background-image: url("../images/city-skyline.jpg"); 
+  background-color: #eff4f8;
+  height: 175px;
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin-bottom: 15px;
+}
+
+.set-bkgnd {
+    background-color: #eff4f8;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
 
 p {
     font-size: 1.5em;
+}
+
+#search-btn {
+    margin-top: 8px;
 }
 
 .mapFunctions {
@@ -26,6 +45,7 @@ div #mymap {
     width: 75%;
 }
 
+/* TABLE */
 thead {
     font-weight: 600;
     font-size: 1.5em;
@@ -36,9 +56,21 @@ thead {
 
 /*  MEDIA QUERIES */
 
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #search-btn {
+        margin-top: -4px;
+    }
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media(min-width: 992px) {
+    .hero-image {
+        height: 263px;
+    }
+    
     div #mymap {
-        width: 90%;
+        width: 700px;
+        height: 500px;
     }
 }
