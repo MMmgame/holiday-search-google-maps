@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sandstone/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+    
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
+    
+    
     <title>Holiday Search</title>
 </head>
-<body onload = "init()">
+<body onload = "initMap()">
     <div class="hero-image"></div>
     
     <header class="container-fluid set-bkgnd">
@@ -27,11 +30,15 @@
             </div>
         </div>
     </header>
+
     <section class="container-fluid">
         <form>
             <div class="row set-bkgnd">
-                <div class="col-xs-8 col-md-8 col-md-offset-2">
-                    <input type="text" class="form-control" id="mapSearch" placeholder="Seach Location">
+                <div class="col-xs-8 col-md-8 col-md-offset-2" id="locationField">
+                    <input id="searchBox"
+                           type="text" 
+                           class="form-control" 
+                           placeholder="Search Location">
                 </div>
                 <div class="col-xs-4 col-md-2">
                     <button type="submit" class="btn btn-info" id="search-btn">Search</button>
@@ -97,7 +104,7 @@
             </tbody>
         </table>
     </section>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJcYqDJQd85mYxz59_UcjoU_cfNinzhvQ&callback=loadMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJcYqDJQd85mYxz59_UcjoU_cfNinzhvQ&libraries=places&callback=initMap"></script>
     <script src="static/js/maps.js"></script>
 </body>
 </html>
