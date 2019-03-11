@@ -1,60 +1,109 @@
+var map, places, infoWindow;
+var markers = [];
+var autocomplete;
+var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
+
 function initMap() {
-        var map = new google.maps.Map(document.getElementById('mymap'), {
+        map = new google.maps.Map(document.getElementById('mymap'), {
           center: {lat: 53.3453116, lng: -6.2735728}, 
-          zoom: 13
-        });
-        
-        var input = document.getElementById('searchBox');
-        var types = document.getElementById('searchType');
-        var autocomplete = new google.maps.places.Autocomplete(input);
-
-        autocomplete.bindTo('bounds', map);
-
-        // Set the data fields to return when the user selects a place.
-        autocomplete.setFields(
-            ['address_components', 'geometry', 'icon', 'name']);
-
-        var infowindow = new google.maps.InfoWindow();
-        var infowindowContent = document.getElementById('infowindow-content');
-        infowindow.setContent(infowindowContent);
-        var marker = new google.maps.Marker({
-          map: map,
-          anchorPoint: new google.maps.Point(0, -29)
+          zoom: 13,
+		  mapTypeControl: false,
+          panControl: false,
+          zoomControl: false,
+          streetViewControl: false
         });
 
-        autocomplete.addListener('place_changed', function() {
-          infowindow.close();
-          marker.setVisible(false);
-          var place = autocomplete.getPlace();
-          if (!place.geometry) {
-            window.alert("No details available for input: '" + place.name + "'");
-            return;
-          }
-
-          // If the place has a geometry, then present it on a map.
-          if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-          } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(16);  
-          }
-          marker.setPosition(place.geometry.location);
-          marker.setVisible(true);
-
-          var address = '';
-          if (place.address_components) {
-            address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-          }
-
-          infowindowContent.children['place-icon'].src = place.icon;
-          infowindowContent.children['place-name'].textContent = place.name;
-          infowindowContent.children['place-address'].textContent = address;
-          infowindow.open(map, marker);
+        infoWindow = new google.maps.InfoWindow({
+          content: document.getElementById('info-content')
         });
 
-        
+        autocomplete = new google.maps.places.Autocomplete(
+            (
+                document.getElementById('searchBox')), {
+                types: ['(cities)'],
+            });
+        places = new google.maps.places.PlacesService(map);
+
+        autocomplete.addListener('place_changed', onPlaceChanged);
       }
+
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        if (place.geometry) {
+          map.panTo(place.geometry.location);
+          map.setZoom(15);
+          search();
+        } else {
+          document.getElementById('searchBox').placeholder = 'Enter a city';
+        }
+      }
+
+      // Search for cafes in the selected city, within the viewport of the map.
+      function search() {
+        var search = {
+          bounds: map.getBounds(),
+          types: ['cafe']   //get selected type here from radio options...
+        };
+
+        places.nearbySearch(search, function(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            clearResults();
+            clearMarkers();
+            
+            for (var i = 0; i < results.length; i++) {
+              var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+              var markerIcon = MARKER_PATH + markerLetter + '.png';
+              markers[i] = new google.maps.Marker({
+                position: results[i].geometry.location,
+                animation: google.maps.Animation.DROP,
+                icon: markerIcon
+              });
+              markers[i].placeResult = results[i];
+              google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+              setTimeout(dropMarker(i), i * 200);
+              addResult(results[i], i);
+            }
+          }
+        });
+      }
+
+      function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          if (markers[i]) {
+            markers[i].setMap(null);
+          }
+        }
+        markers = [];
+      }
+
+      function dropMarker(i) {
+        return function() {
+          markers[i].setMap(map);
+        };
+      }
+
+      function addResult(result, i) {
+        var results = document.getElementById('results');
+        var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+        var markerIcon = MARKER_PATH + markerLetter + '.png';
+      }
+
+      function clearResults() {
+        var results = document.getElementById('results');
+        while (results.childNodes[0]) {
+          results.removeChild(results.childNodes[0]);
+        }
+      }
+
+      function showInfoWindow() {
+        var marker = this;
+        places.getDetails({placeId: marker.placeResult.place_id},
+            function(place, status) {
+              if (status !== google.maps.places.PlacesServiceStatus.OK) {
+                return;
+              }
+              infoWindow.open(map, marker);
+              //buildIWContent(place);  //Feed results into table....
+            });
+      }
+

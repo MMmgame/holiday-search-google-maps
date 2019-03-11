@@ -50,23 +50,23 @@
                 
             </div>
             <fieldset>
-                <legend id="optsHeader">Search Nearby:</legend>
+                <legend id="optsHeader">Show Nearby:</legend>
                 <div class="form-group col-xs-offset-2 col-xs-10 col-md-4 col-md-offset-2">
                     <div class="custom-control custom-radio" id="searchType">
                       <input type="radio" id="searchType-accom" name="customRadio" class="custom-control-input">
-                      <label class="custom-control-label" for="customRadio1">Accomodation</label>
+                      <label class="custom-control-label" for="searchType-accom">Accomodation</label>
                     </div>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="searchType-cafe" name="customRadio" class="custom-control-input">
-                      <label class="custom-control-label" for="customRadio2">Restaurants and Cafes</label>
+                      <label class="custom-control-label" for="searchType-cafe">Restaurants and Cafes</label>
                     </div>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="searchType-bars" name="customRadio" class="custom-control-input">
-                      <label class="custom-control-label" for="customRadio3">Bars</label>
+                      <label class="custom-control-label" for="searchType-bars">Bars</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="searchType" name="customRadio" class="custom-control-input">
-                      <label class="custom-control-label" for="customRadio4">Attractions</label>
+                      <input type="radio" id="searchType-attract" name="customRadio" class="custom-control-input">
+                      <label class="custom-control-label" for="searchType-attract">Attractions</label>
                     </div>
                     <div class="col-xs-6 col-xs-offset-6 clearOptsBtn">
                         <button type="submit" class="btn btn-danger">Clear</button>
@@ -77,6 +77,11 @@
     </section>
     
     <section class="searchResults">
+        <div id="listing">
+          <table id="resultsTable">
+            <tbody id="results"></tbody>
+          </table>
+        </div>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
