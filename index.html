@@ -13,7 +13,7 @@
     
     <title>Holiday Search</title>
 </head>
-<body onload = "initMap()">
+<body >
     <div class="hero-image"></div>
     
     <header class="container-fluid set-bkgnd">
@@ -52,20 +52,20 @@
             <fieldset>
                 <legend id="optsHeader">Search Nearby:</legend>
                 <div class="form-group col-xs-offset-2 col-xs-10 col-md-4 col-md-offset-2">
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                    <div class="custom-control custom-radio" id="searchType">
+                      <input type="radio" id="searchType-accom" name="customRadio" class="custom-control-input">
                       <label class="custom-control-label" for="customRadio1">Accomodation</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                      <input type="radio" id="searchType-cafe" name="customRadio" class="custom-control-input">
                       <label class="custom-control-label" for="customRadio2">Restaurants and Cafes</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                      <input type="radio" id="searchType-bars" name="customRadio" class="custom-control-input">
                       <label class="custom-control-label" for="customRadio3">Bars</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                      <input type="radio" id="searchType" name="customRadio" class="custom-control-input">
                       <label class="custom-control-label" for="customRadio4">Attractions</label>
                     </div>
                     <div class="col-xs-6 col-xs-offset-6 clearOptsBtn">
@@ -104,7 +104,9 @@
             </tbody>
         </table>
     </section>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJcYqDJQd85mYxz59_UcjoU_cfNinzhvQ&libraries=places&callback=initMap"></script>
+    
     <script src="static/js/maps.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJcYqDJQd85mYxz59_UcjoU_cfNinzhvQ&libraries=places&callback=initMap"></script>
+    
 </body>
 </html>
