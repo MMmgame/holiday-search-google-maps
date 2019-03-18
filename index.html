@@ -53,23 +53,29 @@
                 <legend id="optsHeader">Show Nearby:</legend>
                 <div class="form-group col-xs-offset-2 col-xs-10 col-md-4 col-md-offset-2">
                     <div class="custom-control custom-radio" id="searchType">
-                      <input type="radio" id="searchType-accom" name="customRadio" class="custom-control-input">
+                      <input 
+                        type="radio" id="searchType-accom" name="searchType" 
+                        class="custom-control-input" value="lodging" onClick="setSearchType(this.value)"
+                        checked="true">
                       <label class="custom-control-label" for="searchType-accom">Accomodation</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="searchType-cafe" name="customRadio" class="custom-control-input">
+                      <input 
+                        type="radio" id="searchType-cafe" name="searchType" 
+                        class="custom-control-input" value="cafe" onClick="setSearchType(this.value)">
                       <label class="custom-control-label" for="searchType-cafe">Restaurants and Cafes</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="searchType-bars" name="customRadio" class="custom-control-input">
+                      <input 
+                        type="radio" id="searchType-bars" name="searchType" 
+                        value="bar" onClick="setSearchType(this.value)" class="custom-control-input">
                       <label class="custom-control-label" for="searchType-bars">Bars</label>
                     </div>
                     <div class="custom-control custom-radio">
-                      <input type="radio" id="searchType-attract" name="customRadio" class="custom-control-input">
+                      <input 
+                        type="radio" id="searchType-attract" name="searchType" 
+                        class="custom-control-input" value="point_of_interest" onClick="setSearchType(this.value)">
                       <label class="custom-control-label" for="searchType-attract">Attractions</label>
-                    </div>
-                    <div class="col-xs-6 col-xs-offset-6 clearOptsBtn">
-                        <button type="submit" class="btn btn-danger">Clear</button>
                     </div>
                 </div>
             </fieldset>
@@ -90,7 +96,7 @@
                     <td scope="col" class="d-none d-lg-block">Price (hidden)</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="results">
                 <tr>
                     <td>IMAGE</td>
                     <td>Name / Descr <br> More info here about the place and the *** rating</td>

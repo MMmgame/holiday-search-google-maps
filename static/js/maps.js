@@ -2,6 +2,7 @@ var map, places, infoWindow;
 var markers = [];
 var autocomplete;
 var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
+var selectedType;
 
 function initMap() {
         map = new google.maps.Map(document.getElementById('mymap'), {
@@ -32,6 +33,9 @@ function initMap() {
         if (place.geometry) {
           map.panTo(place.geometry.location);
           map.setZoom(15);
+          selectedType='lodging'
+          console.log('Selected type is: ')
+          console.log(selectedType);
           search();
         } else {
           document.getElementById('searchBox').placeholder = 'Enter a city';
@@ -42,8 +46,11 @@ function initMap() {
       function search() {
         var search = {
           bounds: map.getBounds(),
-          types: ['cafe']   //get selected type here from radio options...
+          types: [selectedType]   //get selected type here from radio options...
+          //types: ['cafe']
         };
+        console.log('search string is: ')
+        console.log(search);
 
         places.nearbySearch(search, function(results, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -107,3 +114,7 @@ function initMap() {
             });
       }
 
+function setSearchType(selectedSearchType) {
+  selectedType = selectedSearchType;
+  search();
+}
