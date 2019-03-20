@@ -55,6 +55,31 @@ thead {
   background-color: #F8F5F0;
 }
 
+/* INFO WINDOW */
+.placeIcon {
+    width: 20px;
+    height: 34px;
+    margin: 4px;
+}
+.hotelIcon {
+    width: 24px;
+    height: 24px;
+}
+#rating {
+    font-size: 13px;
+    font-family: Arial Unicode MS;
+}
+.iw_table_row {
+    height: 18px;
+}
+.iw_attribute_name {
+    font-weight: bold;
+    text-align: right;
+}
+.iw_table_icon {
+    text-align: right;
+}
+
 /*  MEDIA QUERIES */
 
 /* Small devices (tablets, 768px and up) */

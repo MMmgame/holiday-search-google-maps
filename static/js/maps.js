@@ -42,12 +42,11 @@ function initMap() {
         }
       }
 
-      // Search for cafes in the selected city, within the viewport of the map.
       function search() {
         var search = {
           bounds: map.getBounds(),
           types: [selectedType]   //get selected type here from radio options...
-          //types: ['cafe']
+          //types: ["cafe"]
         };
         console.log('search string is: ')
         console.log(search);
@@ -93,6 +92,30 @@ function initMap() {
         var results = document.getElementById('results');
         var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
         var markerIcon = MARKER_PATH + markerLetter + '.png';
+        
+        var tr = document.createElement('tr');
+        tr.style.backgroundColor = (i % 2 === 0 ? '#F0F0F0' : '#FFFFFF');
+        tr.onclick = function() {
+          google.maps.event.trigger(markers[i], 'click');
+        };
+
+        var iconTd = document.createElement('td');
+        var nameTd = document.createElement('td');
+        var ratingTd = document.createElement('td');
+        var icon = document.createElement('img');
+        icon.src = markerIcon;
+        icon.setAttribute('class', 'placeIcon');
+        icon.setAttribute('className', 'placeIcon');
+        var name = document.createTextNode(result.name);
+        var rating = document.createTextNode(result.rating);
+        
+        iconTd.appendChild(icon);
+        nameTd.appendChild(name);
+        ratingTd.appendChild(rating);
+        tr.appendChild(iconTd);
+        tr.appendChild(nameTd);
+        tr.appendChild(ratingTd);
+        results.appendChild(tr);
       }
 
       function clearResults() {
@@ -110,8 +133,52 @@ function initMap() {
                 return;
               }
               infoWindow.open(map, marker);
-              //buildIWContent(place);  //Feed results into table....
+              buildIWContent(place);  //Feed results into info window....
             });
+      }
+      
+      function buildIWContent(place) {
+        document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' +
+            'src="' + place.icon + '"/>';
+        document.getElementById('iw-url').innerHTML = '<b><a href="' + place.url +
+            '">' + place.name + '</a></b>';
+        document.getElementById('iw-address').textContent = place.vicinity;
+
+        if (place.formatted_phone_number) {
+          document.getElementById('iw-phone-row').style.display = '';
+          document.getElementById('iw-phone').textContent =
+              place.formatted_phone_number;
+        } else {
+          document.getElementById('iw-phone-row').style.display = 'none';
+        }
+
+        if (place.rating) {
+          var ratingHtml = '';
+          for (var i = 0; i < 5; i++) {
+            if (place.rating < (i + 0.5)) {
+              ratingHtml += '&#10025;';
+            } else {
+              ratingHtml += '&#10029;';
+            }
+          document.getElementById('iw-rating-row').style.display = '';
+          document.getElementById('iw-rating').innerHTML = ratingHtml;
+          }
+        } else {
+          document.getElementById('iw-rating-row').style.display = 'none';
+        }
+
+        if (place.website) {
+          var fullUrl = place.website;
+          var website = hostnameRegexp.exec(place.website);
+          if (website === null) {
+            website = 'http://' + place.website + '/';
+            fullUrl = website;
+          }
+          document.getElementById('iw-website-row').style.display = '';
+          document.getElementById('iw-website').textContent = website;
+        } else {
+          document.getElementById('iw-website-row').style.display = 'none';
+        }
       }
 
 function setSearchType(selectedSearchType) {
