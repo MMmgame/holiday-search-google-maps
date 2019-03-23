@@ -43,13 +43,29 @@ function initMap() {
       }
 
       function search() {
-        var search = {
-          bounds: map.getBounds(),
-          types: [selectedType]   //get selected type here from radio options...
-          //types: ["cafe"]
-        };
+        var selectedTypeNew;
+        selectedTypeNew='';
+        
+        var multiType = selectedType.includes(",");
+        if (multiType) {
+          selectedTypeNew = selectedType.split(',');
+          
+          var search = {
+            bounds: map.getBounds(),
+            types: selectedTypeNew   //get selected type here from radio options...
+          };
+        } else {
+          var search = {
+            bounds: map.getBounds(),
+            types: [selectedType]   //get selected type here from radio options...
+          };
+        }
+        
         console.log('search string is: ')
         console.log(search);
+        
+        clearResults();
+        clearMarkers();
 
         places.nearbySearch(search, function(results, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -182,6 +198,7 @@ function initMap() {
       }
 
 function setSearchType(selectedSearchType) {
+  selectedType ='';
   selectedType = selectedSearchType;
   search();
 }
