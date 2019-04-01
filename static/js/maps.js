@@ -52,17 +52,14 @@ function initMap() {
           
           var search = {
             bounds: map.getBounds(),
-            types: selectedTypeNew   //get selected type here from radio options...
+            types: selectedTypeNew   
           };
         } else {
           var search = {
             bounds: map.getBounds(),
-            types: [selectedType]   //get selected type here from radio options...
+            types: [selectedType]   
           };
         }
-        
-        console.log('search string is: ')
-        console.log(search);
         
         clearResults();
         clearMarkers();
@@ -85,6 +82,7 @@ function initMap() {
               setTimeout(dropMarker(i), i * 200);
               addResult(results[i], i);
             }
+            displayListing();
           }
         });
       }
@@ -201,4 +199,22 @@ function setSearchType(selectedSearchType) {
   selectedType ='';
   selectedType = selectedSearchType;
   search();
+}
+
+function clearOptions() {
+  var clearOpts = document.getElementsByName("searchType");
+  for(var i = 0; i < clearOpts.length; i++) {
+    clearOpts[i].checked = false;
+  }
+  clearResults();
+  clearMarkers();
+  hideListingTable();
+}
+
+function hideListingTable() {
+  document.getElementById("listing").style.display = "none";
+}
+
+function displayListing() {
+  document.getElementById("listing").style.display = "block";
 }
