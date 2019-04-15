@@ -121,34 +121,25 @@ function initMap() {
         icon.setAttribute('class', 'placeIcon');
         icon.setAttribute('className', 'placeIcon');
         var name = document.createTextNode(result.name);
-        //var rating = '';
         var ratingHtml = '';
         var ratingNew = '';
-        //var rating = document.createTextNode(result.rating);
         var ratingNum = parseFloat(result.rating);
-        //rating = 3;
-        var blackstar = '&#9733;';
-        var whitestar = '&#9734;';
+        const blackstar = '\u2605';
+        const whitestar = '\u2606';
         if (ratingNum) {
           
           for (var i = 0; i < 5; i++) {
             if (ratingNum < (i + 0.5)) {
-              //ratingHtml += '&#10025;';
               ratingHtml += whitestar;
-              //ratingHtml +='0';
-              console.log(ratingHtml);
             } else {
-              //ratingHtml += '&#10029;';
               ratingHtml += blackstar;
-              //ratingHtml +='1';
-              console.log(ratingHtml);
             }
-          //document.getElementById('iw-rating-row').style.display = '';
-          //document.getElementById('iw-rating').innerHTML = ratingHtml;
             ratingNew = document.createTextNode(ratingHtml);
           }
         } else {
-          //document.getElementById('iw-rating-row').style.display = 'none';
+          ratingHtml += whitestar+whitestar+whitestar+whitestar+whitestar;
+          console.log('no rating / undefined');
+          console.log(ratingHtml);
           ratingNew = document.createTextNode(ratingHtml);
         }
         
@@ -176,7 +167,7 @@ function initMap() {
                 return;
               }
               infoWindow.open(map, marker);
-              buildIWContent(place);  //Feed results into info window....
+              buildIWContent(place);
             });
       }
       
