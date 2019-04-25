@@ -24,7 +24,7 @@ which allows me to view the ratings and prices at a glance.
 - I like to research holiday destinations at my PC where I can view a map of the area on a larger scale. I also like to search for tourist attractions and restaurants nearby. 
 On clicking a place marker I would like to view contact details or their website address so that I can view it in more detail.
 
-Wireframes document "Project2_wireframes.pdf" is also available on GitHub (https://github.com/eldowling/holiday-search-google-maps/docs/Project2_wireframes.pdf)
+Wireframes document "Project2_wireframes.pdf" is also available on GitHub (https://github.com/eldowling/holiday-search-google-maps/blob/master/docs/Project2_wireframes.pdf)
 
 ## Features
 
