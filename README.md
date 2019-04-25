@@ -24,11 +24,16 @@ which allows me to view the ratings and prices at a glance.
 - I like to research holiday destinations at my PC where I can view a map of the area on a larger scale. I also like to search for tourist attractions and restaurants nearby. 
 On clicking a place marker I would like to view contact details or their website address so that I can view it in more detail.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Wireframes document "Project2_wireframes.pdf" is also available on GitHub (https://github.com/eldowling/holiday-search-google-maps/docs/Project2_wireframes.pdf)
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+This is a single page application to allow users search for a holiday destination and view it on a map. The site has the following features / functions:
+- A search bar which uses the Google Places API and autocomplete to provide a list of locations to search for.
+- The map is displayed and linked to the searched location, which is updated after each search
+- There are 4 radio option buttons available for the user to select the nearby search, which will display markers on the map for the selected option.
+- A search results table with detailed information for each of the markers is displayed and updated when the user selections any of the options.
+- A Clear button is available to clear the markers from the map and hide the table from view, allowing them to preform another search, if required.
  
 ### Existing Features
 - Feature 1 - allows users X to achieve Y, by having them fill out Z
