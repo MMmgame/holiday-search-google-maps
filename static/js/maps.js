@@ -116,6 +116,7 @@ function initMap() {
         var iconTd = document.createElement('td');
         var nameTd = document.createElement('td');
         var ratingTd = document.createElement('td');
+        var priceTd = document.createElement('td');
         var icon = document.createElement('img');
         icon.src = markerIcon;
         icon.setAttribute('class', 'placeIcon');
@@ -138,17 +139,37 @@ function initMap() {
           }
         } else {
           ratingHtml += whitestar+whitestar+whitestar+whitestar+whitestar;
-          console.log('no rating / undefined');
-          console.log(ratingHtml);
           ratingNew = document.createTextNode(ratingHtml);
         }
+        
+        var priceNum = parseFloat(result.price_level);
+        var priceSymbols = '';
+        var priceHTML = '';
+        const dollarSign = '\u20AC';
+        if (priceNum) {
+          for (var i = 0; i < 5; i++) {
+            if (priceNum < (i + 0.5)) {
+              priceSymbols += '';
+            } else {
+              priceSymbols += dollarSign + ' ';
+            }
+            priceHTML = document.createTextNode(priceSymbols);
+          }
+        } else {
+          priceSymbols = 'None';
+          priceHTML = document.createTextNode(priceSymbols);
+        }
+        
+//        var openHours = document.createTextNode(result.opening_hours.periods[1].open.day);
         
         iconTd.appendChild(icon);
         nameTd.appendChild(name);
         ratingTd.appendChild(ratingNew);
+        priceTd.appendChild(priceHTML);
         tr.appendChild(iconTd);
         tr.appendChild(nameTd);
         tr.appendChild(ratingTd);
+        tr.appendChild(priceTd);
         results.appendChild(tr);
       }
 
