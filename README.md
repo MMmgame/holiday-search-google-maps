@@ -36,15 +36,26 @@ This is a single page application to allow users search for a holiday destinatio
 - A Clear button is available to clear the markers from the map and hide the table from view, allowing them to preform another search, if required.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
-
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- The search bar allows the user to type the location name they wish to search for, while using Google Places autocomplete to provide 
+place name suggestions to search for.
+- The search bar is also linked to the map, and will update the searched location on the map once selected.
+- Radio option buttons are available to allow the user to complete a simplified search on nearby place types, such as:
+    - Accomodation
+    - Restaurants & Cafes
+    - Bars
+    - Attractions
+- When the user selects one of the radio options, the map will then be populated with markers for the 
+appropriate place type.
+- After the markers are loaded for the selected place type, a table listing of the markers, together
+with the establishment name, rating and price level details will be displayed.
+- A clear button is available beside the radio options, this can be used to remove the markers from the
+map, and it will also remove the listing table until the next nearby search is completed.
 
 ### Features Left to Implement
-- Another feature idea
+- The site could be expanded to allow the user to save a list of destinations or attractions that they
+are interested in visting.
+- The listing table could also be updated to include other relevant details provided by the
+Google Places API.
 
 ## Technologies Used
 
