@@ -3,11 +3,13 @@
 This website is to provide a user friendly service to complete a search on holiday desitinations.
 It is simple and easy to use, allowing users to enter their holiday search destination and display the results on the map.
 
-The website also encorporates a google places search, and through the use of radio buttons can display markers for different place types. 
+The website also encorporates a google places search, and through the use of radio buttons can display markers for a selected number of different place types. 
 The user can select from the different options available and the map will be updated with the place markers for the searched location. In addition
 to this, a scrollable table which details the place names for each the markers which have been displayed on the map, to provide the user with a convienient summary information.
 
-The markers on the map are also clickable, which will then display further information on the place for the user to access.
+The markers on the map are also clickable, which will then display further information in an information window 
+on the selected place for the user to view.
+
 The markers can be cleared from the map by using the Clear button to the right of the radio buttons, which will also remove the results table from view until the next search is completed.
  
 ## UX
@@ -24,7 +26,9 @@ which allows me to view the ratings and prices at a glance.
 - I like to research holiday destinations at my PC where I can view a map of the area on a larger scale. I also like to search for tourist attractions and restaurants nearby. 
 On clicking a place marker I would like to view contact details or their website address so that I can view it in more detail.
 
-Wireframes document "Project2_wireframes.pdf" is also available on GitHub (https://github.com/eldowling/holiday-search-google-maps/blob/master/docs/Project2_wireframes.pdf)
+The following wireframes document "Project2_wireframes.pdf" is also available on GitHub (https://github.com/eldowling/holiday-search-google-maps/blob/master/docs/Project2_wireframes.pdf) 
+
+This document was used to provide an outline of the content required in the Holiday Search web application. Focusing on providing the key features and basic layout required.
 
 ## Features
 
@@ -61,8 +65,25 @@ Google Places API.
 
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+    - **HTML5** is the markup language used to structure and present the content of the website. It provides features allowing for placement of the Map, and use of forms and tables in the website.
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+    - A **CSS Stylesheet** was used to define the style of the page such as images, headings and tables. Media Queries are also used in order to apply different settings depending on the screen size being used to view the site.
+- [Bootstrap](https://getbootstrap.com/docs/3.3/)
+    - The project makes use of the **Bootstrap** framework to structure the page and provide a responsive grid which contains the various elements of the page such as the search bar, Map and table of search results.
+- [Bootswatch](https://https://bootswatch.com)
+-   - The 'Sandstone' Bootswatch theme was used to quickly apply a them of typography and fonts, buttons and colours, and table formats to the Bootstrap grid layout applied to the site.
+- [FontAwesome](https://fontawesome.com/)
+    - **Font Awesome** was used apply some customised icons on the page, to highlight the search section and further enhance the page.
+- [JavaScript](https://www.javascript.com)
+    - **JavaScript** was used throughout the web application to perform various functions such as:
+        -   Loading the map and using co-ordinates to display a default map
+        -   Load the new location on the map based on the Google Places search performed by the user
+        -   Place Markers on the map based on the 'Search Nearby' location search, and clear the markers by using a Clear button
+        -   Compile the results of the nearby location search into a table, and build dynamic HTML code to display the results list in a structured table format each time the user completes a search
+        -   Build the search results data into an information window which is activated when the user clicks on a marker
+- [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+- [Google Places API](https://cloud.google.com/maps-platform/places/)
 
 
 ## Testing
