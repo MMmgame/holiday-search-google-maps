@@ -72,33 +72,65 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [Bootstrap](https://getbootstrap.com/docs/3.3/)
     - The project makes use of the **Bootstrap** framework to structure the page and provide a responsive grid which contains the various elements of the page such as the search bar, Map and table of search results.
 - [Bootswatch](https://https://bootswatch.com)
--   - The 'Sandstone' Bootswatch theme was used to quickly apply a them of typography and fonts, buttons and colours, and table formats to the Bootstrap grid layout applied to the site.
+    - The 'Sandstone' **Bootswatch** theme was used to quickly apply a them of typography and fonts, buttons and colours, and table formats to the Bootstrap grid layout applied to the site.
 - [FontAwesome](https://fontawesome.com/)
     - **Font Awesome** was used apply some customised icons on the page, to highlight the search section and further enhance the page.
 - [JavaScript](https://www.javascript.com)
     - **JavaScript** was used throughout the web application to perform various functions such as:
-        -   Loading the map and using co-ordinates to display a default map
-        -   Load the new location on the map based on the Google Places search performed by the user
-        -   Place Markers on the map based on the 'Search Nearby' location search, and clear the markers by using a Clear button
-        -   Compile the results of the nearby location search into a table, and build dynamic HTML code to display the results list in a structured table format each time the user completes a search
-        -   Build the search results data into an information window which is activated when the user clicks on a marker
-- [Google Maps API](https://developers.google.com/maps/documentation/javascript/tutorial)
+        -   Loading the map and using co-ordinates to display a default map.
+        -   Load the new location on the map based on the Google Places search performed by the user.
+        -   Place Markers on the map based on the 'Search Nearby' location search, and clear the markers by using a Clear button.
+        -   Compile the results of the nearby location search into a table, and build dynamic HTML code to display the results list in a structured table format each time the user completes a search.
+        -   Build the search results data into an information window which is activated when the user clicks on a marker.
+- [Google Maps API](https://cloud.google.com/maps-platform/maps/)
+    - **Google Maps API** is used in this project in order to display a customised and interactive map to display the user's searched location, and also to display customised markers for an additional search of nearby places.
+    - The default map was loaded with a set location using Longitude and Latitude co-ordinates for Dublin city.
+    - The zoom level of the map was also set to allow the user to see streets and landmarks around Dublin city center. Users can control the zoom on the map, and can zoom in or out with ease.
 - [Google Places API](https://cloud.google.com/maps-platform/places/)
-
+    - **Google Places API** is used together with the search bar to control the location displayed on the map, and provide autocomplete for place names as search is being completed. 
+    - An event listener is used to check the autocomplete search bar for the place_changed event, when this is true, it then calls the OnPlaceChanged function to update the map for the new location.
+    - The show nearby places radio options uses Google Places to carry out a search of nearby facilities based on the place 'type' defined by the radio option that is selected.
+    - Google Places also returns multiple data items on the locations and these are used to fill both the Results table, as well displaying place details in an information window if the place marker on the map is clicked.
+    - A second event listener is used to check if a marker has been clicked and will display an information window with the relevant place details.
+    - Each radio option defines a place type to display markers for any locations on the map defined with the same place type as the one selected. Some of the options are set to use more than one place type, these are defined using a comma seperated list. 
+    - A search function is then used to split the list of place types and are used in the types array when displayed on the map.
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Extensive testing was required to be carried out at each stage of the project. After each function had been implemented testing was performed to ensure it was working correctly, or if any issue was found it could be corrected and retested before proceeding to creating the next function.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+Details of the scenarios used for testing are listed below:
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+1. Loading the map with set Longitude and Latitude Co-Ordinates:
+    1. Open the page and ensure the map loads, some difficulties arose from trying to set up the API Key and no map was display.
+    2. Changed the default selected zoom to show a detailed view of the streets in the city center when the map is first loaded.
+2. Formatting map size
+    1. Defined the map with to be 100% of screen size on mobile devices, tested this and included it in a bootstrap table to allow for padding at the edges
+    2. Set up a media query for medium screen size, where the map width is defined to allow for the map to be displayed on the left of the screen and the results table to be shown on the right when it is implemented.
+3. Placing Markers
+    1. Included function to place markers of all places of type 'cafe' within a 5 mile radius of the center point in the map.
+    2. Loaded the map and checked that markers were being displayed
+4. Changing map location and reload markers
+    1. Markers are displayed when map is loaded to its default location. 
+    2. Move the map and change it to a different location
+    3. Right click to load the markers again for a new location
+    4. Check that the old markers have been cleared if move back to the original location
+5. Autocomplete search bar bound to map
+    1. An autocomplete search bar was added to the top of the map to use the Google Places autocomplete function for searching place names
+    2. Tested by typing in place names in the search bar and selecting the suggested place names
+    3. Map was then reloaded to display the new location
+    4. Markers were displayed for 'cafes' in the new location
+7. Seperate search bar and linking to the map
+    1. Original concept was to have a seperate search box above the map, removed the autocomplete search box and implemented the new search bar to have the same autocomplete functionality
+    2. Typed place names and selected a place from the list of suggestions
+    3. Checked that map was re-loaded with selected place
+    4. Checked that markers were also loaded for new location
+8. Radio options for selecting Place Types
+    1. 
+9. Displaying markers for options with multiple place types
+10. Clicking on marker to display information window
+11. Displaying results table with details from each marker displayed on map
+12. Using clear button
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
