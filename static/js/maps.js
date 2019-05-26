@@ -34,8 +34,6 @@ function initMap() {
           map.panTo(place.geometry.location);
           map.setZoom(15);
           selectedType='lodging'
-          console.log('Selected type is: ')
-          console.log(selectedType);
           search();
         } else {
           document.getElementById('searchBox').placeholder = 'Enter a city';
@@ -159,8 +157,6 @@ function initMap() {
           priceSymbols = 'None';
           priceHTML = document.createTextNode(priceSymbols);
         }
-        
-//        var openHours = document.createTextNode(result.opening_hours.periods[1].open.day);
         
         iconTd.appendChild(icon);
         nameTd.appendChild(name);

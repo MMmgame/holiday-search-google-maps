@@ -59,7 +59,7 @@ map, and it will also remove the listing table until the next nearby search is c
 - The site could be expanded to allow the user to save a list of destinations or attractions that they
 are interested in visting.
 - The listing table could also be updated to include other relevant details provided by the
-Google Places API.
+Google Places API, such as Opening Hours or Reviews
 
 ## Technologies Used
 
@@ -126,11 +126,27 @@ Details of the scenarios used for testing are listed below:
     3. Checked that map was re-loaded with selected place
     4. Checked that markers were also loaded for new location
 8. Radio options for selecting Place Types
-    1. 
+    1. Set value for the radio options with different place types, then loaded the map and clicked on each of the option buttons.
+    2. Checked that different markers were being loaded for each place type.
 9. Displaying markers for options with multiple place types
+    1. Expanded on the option buttons to include multiple place types for some of the options. 
+    2. Seperated the values with commas and inputted them to an array. Found issues with using this array and took some adjustments until the correct format was found to allow it return places for these multiple types.
+    3. Switched between each of the option buttons to make sure it was clearing the previous set of markers and displaying markers correctly for the place type selected.
 10. Clicking on marker to display information window
+    1. Selected an option button to display markers for a place type
+    2. Clicked on a marker to check that the information window was being displayed and included the correct details for the marker displayed
+    3. Closed the information window and clicked on other markers, checking that the details displayed were correct for each.
 11. Displaying results table with details from each marker displayed on map
+    1. Created a table that is built from the list of place types results and displayed when markers are displayed
+    2. Checked the table and make sure it is showing the relevant marker details
+    3. Added in the rating field to the table, initially it was displaying with the numeric value, updated the code to display the ratings with star icons
+    4. Found issues with using the star icons because of how the table was being built using the createTextNode, the star icons had to be defined with their unicode value in order to display correctly.
+    5. When building in column for price level of the location, the same principle was applied to display the Euro symbol to represent the price level.
+    6. Tested by checking the value output for the rating level and price level on numerous markers, then compared these to the number of stars and Euro signs displayed on the table.
 12. Using clear button
+    1. Checked that the markers were removed from the map when the clear button was clicked.
+    2. All radio options should be unchecked when clicked.
+    3. Results table should be hidden when the clear button is clicked
 
 In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
