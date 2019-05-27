@@ -49,6 +49,10 @@ div #mymap {
     
 }
 
+.searchResults {
+    padding-top: 10px;
+}
+
 #resultsTable {
     display: block;
 	width: 100%;
@@ -110,6 +114,9 @@ thead {
     }
     #search-btn {
         margin-top: -4px;
+    }
+    .searchResults {
+        padding-top: 2px;
     }
 }
 
