@@ -97,9 +97,14 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 ## Testing
 
-Extensive testing was required to be carried out at each stage of the project. After each function had been implemented testing was performed to ensure it was working correctly, or if any issue was found it could be corrected and retested before proceeding to creating the next function.
+Extensive testing was required to be carried out at each stage of the project. After each function had been implemented testing was performed to ensure it was working correctly, 
+or if any issue was found it could be corrected and retested before proceeding to creating the next function.
 
-Details of the scenarios used for testing are listed below:
+The while designing the initial layout, a simple format was chosen for a mobile first approch. The layout was changed slightly to fill out the wider screens more, 
+and make the results table more accessible and easier to see without having to scroll down further. Testing was carried out on a mobile device, tablet and medium and large screen
+devices to ensure the layout was adjusted for each screen size. Chrome, Internet explorer and Firefox were also used to check that the layout remained the same on each.
+
+Scenarios used for testing are detailed below:
 
 1. Loading the map with set Longitude and Latitude Co-Ordinates:
     1. Open the page and ensure the map loads, some difficulties arose from trying to set up the API Key and no map was display.
@@ -148,32 +153,54 @@ Details of the scenarios used for testing are listed below:
     2. All radio options should be unchecked when clicked.
     3. Results table should be hidden when the clear button is clicked
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+The project was development using Cloud9 and deployed to the GitHub hosting platform
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+In order to maintain correct version control, the project was commited to the GitHub repository at regular intervals, or when a component had been completed.
+It was sometimes necessary to work on examples for some components such as the Google Places autocomplete seperately in order to understand how they worked. 
+Once I learned more about each component I would work on intgrating it with my web application and layout, and work on the modifications I required as part of the full web application.
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-
-## Credits
+There are no differences between the deployed and development versions, any components that were implemented in the development stage were then uploaded to GitHub for the final deployment.
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+The following articles and tutorials were used to learn about the different functions I required for my web application, and to gain examples that I could work on and 
+make modifications to in order to create the Holiday search page with links to the Google Maps and Google Places API's
+
+- Google Places API Part 1-4: Coffee Shop Locator App 
+    -  [Part 1](https://www.youtube.com/watch?v=eLGtNm4dSxc&index=1&list=PLAgylfU8wrtt5vU1l-ctUrPS_eF5Xow5F)
+    -  [Part 2](https://www.youtube.com/watch?v=k1_sUMw8kwg&index=2&list=PLAgylfU8wrtt5vU1l-ctUrPS_eF5Xow5F)
+    -  [Part 3](https://www.youtube.com/watch?v=zVU_MQyKFGg&index=3&list=PLAgylfU8wrtt5vU1l-ctUrPS_eF5Xow5F)
+    -  [Part 4](https://www.youtube.com/watch?v=-Em4K7ahL28&index=4&list=PLAgylfU8wrtt5vU1l-ctUrPS_eF5Xow5F)
+- [W3 Schools Google Maps Events](https://www.w3schools.com/graphics/google_maps_events.asp)
+- [Getting Started with the Google Maps JavaScript API – Part III: Adding an Event Listener](https://blog.kevinchisholm.com/javascript/getting-started-with-the-google-maps-javascript-api-part-iii-adding-an-event-listener/)
+- [Google Maps - Markers (Tutorialspoint)](https://www.tutorialspoint.com/google_maps/google_maps_markers.htm)
+- [Google Maps - Events (Tutorialspoint)](https://www.tutorialspoint.com/google_maps/google_maps_events.htm)
+- [Markers, InfoWindow, EventListener in Google Maps API (v3)](https://www.youtube.com/watch?v=BFJsXl6Iuw8)
+- [Bounds, Multiple Markers in Google Maps API (v3)](https://www.youtube.com/watch?v=yANtE1b8cLc)
+- [Google Maps Markers](https://developers.google.com/maps/documentation/javascript/examples/marker-simple)
+- Google Places API Autocomplete
+    -  [Autocomplete address forms](https://developers.google.com/maps/documentation/javascript/places-autocomplete#address_forms)
+    -  [Places searchbox example](https://developers.google.com/maps/documentation/javascript/examples/places-searchbox)
+    -  [Places autocomplete example](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)
+    -  [Places autocomplete hotel search example](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-hotelsearch)
+    -  [W3 Docs - Places Autocomplete](https://www.w3docs.com/learn-javascript/places-autocomplete.html)
+    -  [Google Places Guide - Places autocomplete](https://developers.google.com/places/web-service/autocomplete)
+    -  [Google Places - Autocomplete requests example](https://developers.google.com/places/web-service/autocomplete#example_autocomplete_requests)
+    -  [Google Places - Supported types](https://developers.google.com/places/supported_types)
+- [Tutorial: Autocomplete Cities Using the Google Places API](https://www.youtube.com/watch?v=Rpzp0yCAmq4)
+- [Maps Live: Place Autocomplete in the Google Maps JavaScript API](https://www.youtube.com/watch?v=lSdM3yZkj1w&t=262s)
+- [Show and Hide div elements](https://www.w3schools.com/css/tryit.asp?filename=trycss_display)
+- Unicode Characters
+    - [W3.org - HTML Encoding Declarations](https://www.w3.org/International/questions/qa-html-encoding-declarations)
+    - [W3.org - What is encoding](https://www.w3.org/International/questions/qa-what-is-encoding)
+    - [Compart - Unicode Characters](https://www.compart.com/en/unicode/search?q=star#characters)
 
 ### Media
-- The photos used in this site were obtained from ...
+The pictures used in this site were obtained from the following sources:
+- [City-skyline picture](https://www.flickr.com/photos/romainpontida/43511551295)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I would like to thank my Mentor Rick Gallegos, and also my family for their input, advice and support throughout the project.
+- I would also like to thank all mentors in the Code Institute for their help on and support on queries I had in implementing this project.
