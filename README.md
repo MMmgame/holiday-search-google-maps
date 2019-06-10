@@ -101,58 +101,58 @@ The languages, frameworks, libraries, that were used to construct this project a
 Extensive testing was required to be carried out at each stage of the project. After each function had been implemented testing was performed to ensure it was working correctly, 
 or if any issue was found it could be corrected and retested before proceeding to creating the next function.
 
-The while designing the initial layout, a simple format was chosen for a mobile first approach. The layout was changed slightly to fill out the wider screens more, 
+While designing the initial layout, a simple format was chosen for a mobile first approach. The layout was changed slightly to fill out the wider screens more, 
 and make the results table more accessible and easier to see without having to scroll down further. Testing was carried out on a mobile device, tablet and medium and large screen
 devices to ensure the layout was adjusted for each screen size. Chrome, Internet explorer and Firefox were also used to check that the layout remained the same on each.
 
 Scenarios used for testing are detailed below:
 
 1. Loading the map with set Longitude and Latitude Co-Ordinates:
-    a. Open the page and ensure the map loads, some difficulties arose from trying to set up the API Key and no map was display.
-    b. Changed the default selected zoom to show a detailed view of the streets in the city centre when the map is first loaded.
+    1. Open the page and ensure the map loads, some difficulties arose from trying to set up the API Key and no map was display.
+    2. Changed the default selected zoom to show a detailed view of the streets in the city centre when the map is first loaded.
 2. Formatting map size
-    a. Defined the map with to be 100% of screen size on mobile devices, tested this and included it in a bootstrap table to allow for padding at the edges
-    b. Set up a media query for medium screen size, where the map width is defined to allow for the map to be displayed on the left of the screen and the results table to be shown on the right when it is implemented.
+    1. Defined the map with to be 100% of screen size on mobile devices, tested this and included it in a bootstrap table to allow for padding at the edges
+    2. Set up a media query for medium screen size, where the map width is defined to allow for the map to be displayed on the left of the screen and the results table to be shown on the right when it is implemented.
 3. Placing Markers
-    a. Included function to place markers of all places of type 'cafe' within a 5 mile radius of the center point in the map.
-    b. Loaded the map and checked that markers were being displayed
+    1. Included function to place markers of all places of type 'cafe' within a 5 mile radius of the center point in the map.
+    2. Loaded the map and checked that markers were being displayed
 4. Changing map location and reload markers
-    a. Markers are displayed when map is loaded to its default location. 
-    b. Move the map and change it to a different location
-    c. Right click to load the markers again for a new location
-    d. Check that the old markers have been cleared if move back to the original location
+    1. Markers are displayed when map is loaded to its default location. 
+    2. Move the map and change it to a different location
+    3. Right click to load the markers again for a new location
+    4. Check that the old markers have been cleared if move back to the original location
 5. Autocomplete search bar bound to map
-    a. An autocomplete search bar was added to the top of the map to use the Google Places autocomplete function for searching place names
-    b. Tested by typing in place names in the search bar and selecting the suggested place names
-    c. Map was then reloaded to display the new location
-    d. Markers were displayed for 'cafes' in the new location
-7. Separate search bar and linking to the map
-    a. Original concept was to have a separate search box above the map, removed the autocomplete search box and implemented the new search bar to have the same autocomplete functionality
-    b. Typed place names and selected a place from the list of suggestions
-    c. Checked that map was re-loaded with selected place
-    d. Checked that markers were also loaded for new location
-8. Radio options for selecting Place Types
-    a. Set value for the radio options with different place types, then loaded the map and clicked on each of the option buttons.
-    b. Checked that different markers were being loaded for each place type.
-9. Displaying markers for options with multiple place types
-    a. Expanded on the option buttons to include multiple place types for some of the options. 
-    b. Separated the values with commas and inputted them to an array. Found issues with using this array and took some adjustments until the correct format was found to allow it return places for these multiple types.
-    c. Switched between each of the option buttons to make sure it was clearing the previous set of markers and displaying markers correctly for the place type selected.
-10. Clicking on marker to display information window
-    a. Selected an option button to display markers for a place type
-    b. Clicked on a marker to check that the information window was being displayed and included the correct details for the marker displayed
-    c3. Closed the information window and clicked on other markers, checking that the details displayed were correct for each.
-11. Displaying results table with details from each marker displayed on map
-    a. Created a table that is built from the list of place types results and displayed when markers are displayed
-    b. Checked the table and make sure it is showing the relevant marker details
-    c. Added in the rating field to the table, initially it was displaying with the numeric value, updated the code to display the ratings with star icons
-    d. Found issues with using the star icons because of how the table was being built using the createTextNode, the star icons had to be defined with their unicode value in order to display correctly.
-    e. When building in column for price level of the location, the same principle was applied to display the Euro symbol to represent the price level.
-    f. Tested by checking the value output for the rating level and price level on numerous markers, then compared these to the number of stars and Euro signs displayed on the table.
-12. Using clear button
-    a. Checked that the markers were removed from the map when the clear button was clicked.
-    b. All radio options should be unchecked when clicked.
-    c. Results table should be hidden when the clear button is clicked
+    1. An autocomplete search bar was added to the top of the map to use the Google Places autocomplete function for searching place names
+    2. Tested by typing in place names in the search bar and selecting the suggested place names
+    3. Map was then reloaded to display the new location
+    4. Markers were displayed for 'cafes' in the new location
+6. Separate search bar and linking to the map
+    1. Original concept was to have a separate search box above the map, removed the autocomplete search box and implemented the new search bar to have the same autocomplete functionality
+    2. Typed place names and selected a place from the list of suggestions
+    3. Checked that map was re-loaded with selected place
+    4. Checked that markers were also loaded for new location
+7. Radio options for selecting Place Types
+    1. Set value for the radio options with different place types, then loaded the map and clicked on each of the option buttons.
+    2. Checked that different markers were being loaded for each place type.
+8. Displaying markers for options with multiple place types
+    1. Expanded on the option buttons to include multiple place types for some of the options. 
+    2. Separated the values with commas and inputted them to an array. Found issues with using this array and took some adjustments until the correct format was found to allow it return places for these multiple types.
+    3. Switched between each of the option buttons to make sure it was clearing the previous set of markers and displaying markers correctly for the place type selected.
+9. Clicking on marker to display information window
+    1. Selected an option button to display markers for a place type
+    2. Clicked on a marker to check that the information window was being displayed and included the correct details for the marker displayed
+    3. Closed the information window and clicked on other markers, checking that the details displayed were correct for each.
+10. Displaying results table with details from each marker displayed on map
+    1. Created a table that is built from the list of place types results and displayed when markers are displayed
+    2. Checked the table and make sure it is showing the relevant marker details
+    3. Added in the rating field to the table, initially it was displaying with the numeric value, updated the code to display the ratings with star icons
+    4. Found issues with using the star icons because of how the table was being built using the createTextNode, the star icons had to be defined with their unicode value in order to display correctly.
+    5. When building in column for price level of the location, the same principle was applied to display the Euro symbol to represent the price level.
+    6. Tested by checking the value output for the rating level and price level on numerous markers, then compared these to the number of stars and Euro signs displayed on the table.
+11. Using clear button
+    1. Checked that the markers were removed from the map when the clear button was clicked.
+    2. All radio options should be unchecked when clicked.
+    3. Results table should be hidden when the clear button is clicked
 
 ## Deployment
 
